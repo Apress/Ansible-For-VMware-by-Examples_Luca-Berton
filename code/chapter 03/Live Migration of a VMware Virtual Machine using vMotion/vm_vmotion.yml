@@ -1,0 +1,24 @@
+---
+- name: vm vmotion demo
+  hosts: localhost
+  gather_facts: false
+  vars:
+    destination_host: "host2.vmware.example.com"
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: vars.yml
+  tasks:
+    - name: VM vmotion
+      vmware_vmotion:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        vm_name: "{{ vm_name }}"
+        destination_host: "{{ destination_host }}"
+      register: vm_info
+
+    - name: VM running host
+      ansible.builtin.debug:
+        var: vm_info.running_host

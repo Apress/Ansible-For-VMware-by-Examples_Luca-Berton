@@ -1,0 +1,16 @@
+---
+- name: Rolling update
+  hosts: all
+  become: true
+  tasks:
+    - name: latest apache httpd package is installed
+      ansible.builtin.yum:
+        name: httpd
+        state: latest
+      notify: restart apache
+
+  handlers:
+    - name: restart apache
+      ansible.builtin.service:
+        name: httpd
+        state: restarted

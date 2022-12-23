@@ -1,0 +1,7 @@
+---
+- name: conditional_facts
+  hosts: all
+  tasks:
+  - name: Shut down Debian-like systems
+    ansible.builtin.command: /sbin/shutdown -t now
+    when: ansible_facts['os_family'] == "Debian"

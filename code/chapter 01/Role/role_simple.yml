@@ -1,0 +1,6 @@
+---
+- name: role example
+  hosts: all
+  roles:
+    - role1
+    - role2

@@ -1,0 +1,29 @@
+---
+- name: stop vm demo
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: vars.yml
+  tasks:
+    - name: guest shutdown
+      vmware_guest_powerstate:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        name: "{{ vm_name }}"
+        state: shutdown-guest
+        state_change_timeout: 120
+      register: shutdown
+      ignore_errors: true
+    - name: poweroff
+      vmware_guest_powerstate:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        name: "{{ vm_name }}"
+        state: powered-off
+      when: shutdown.failed

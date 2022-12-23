@@ -1,0 +1,22 @@
+certifi==2022.6.15
+cffi==1.15.1
+charset-normalizer==2.1.1
+cryptography==37.0.4
+idna==3.3
+lxml==4.9.1
+nsx-policy-python-sdk @ file://localhost//tmp/pip-req-build-lv0gh902/lib/nsx-policy-python-sdk/nsx_policy_python_sdk-4.0.0.0.0-py2.py3-none-any.whl
+nsx-python-sdk @ file://localhost//tmp/pip-req-build-lv0gh902/lib/nsx-python-sdk/nsx_python_sdk-4.0.0.0.0-py2.py3-none-any.whl
+nsx-vmc-aws-integration-python-sdk @ file://localhost//tmp/pip-req-build-lv0gh902/lib/nsx-vmc-aws-integration-python-sdk/nsx_vmc_aws_integration_python_sdk-4.0.0.0.0-py2.py3-none-any.whl
+nsx-vmc-policy-python-sdk @ file://localhost//tmp/pip-req-build-lv0gh902/lib/nsx-vmc-policy-python-sdk/nsx_vmc_policy_python_sdk-4.0.0.0.0-py2.py3-none-any.whl
+pycparser==2.21
+pyOpenSSL==22.0.0
+pyvmomi==7.0.3
+requests==2.28.1
+six==1.16.0
+urllib3==1.26.12
+vapi-client-bindings @ file://localhost//tmp/pip-req-build-lv0gh902/lib/vapi-client-bindings/vapi_client_bindings-3.9.0-py2.py3-none-any.whl
+vapi-common-client @ file://localhost//tmp/pip-req-build-lv0gh902/lib/vapi-common-client/vapi_common_client-2.34.0-py2.py3-none-any.whl
+vapi-runtime @ file://localhost//tmp/pip-req-build-lv0gh902/lib/vapi-runtime/vapi_runtime-2.34.0-py2.py3-none-any.whl
+vmc-client-bindings @ file://localhost//tmp/pip-req-build-lv0gh902/lib/vmc-client-bindings/vmc_client_bindings-1.60.0-py2.py3-none-any.whl
+vmc-draas-client-bindings @ file://localhost//tmp/pip-req-build-lv0gh902/lib/vmc-draas-client-bindings/vmc_draas_client_bindings-1.19.0-py2.py3-none-any.whl
+vSphere-Automation-SDK==1.78.0

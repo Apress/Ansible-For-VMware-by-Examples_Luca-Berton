@@ -1,0 +1,2 @@
+[servers]
+demo1.example.com ansible_user=devops

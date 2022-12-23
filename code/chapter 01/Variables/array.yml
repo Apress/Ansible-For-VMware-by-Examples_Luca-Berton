@@ -1,0 +1,15 @@
+---
+- name: Array demo
+  hosts: all
+  vars:
+    users:
+      alice:
+        firstname: Alice
+        homedir: /users/alice
+      bob:
+        firstname: Bob
+        homedir: /users/bob
+  tasks:
+    - name: Alice's first name
+      ansible.builtin.debug:
+        var: users['alice']['firstname']

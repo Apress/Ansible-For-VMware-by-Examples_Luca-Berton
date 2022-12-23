@@ -1,0 +1,22 @@
+---
+- name: vm UUID demo
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: vars.yml
+  tasks:
+    - name: Get VM UUID
+      vmware_guest_info:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        datacenter: "{{ vcenter_datacenter }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        name: "{{ vm_name }}"
+      register: detailed_vm_info
+
+    - name: print VM UUID
+      ansible.builtin.debug:
+        var: detailed_vm_info.instance.hw_product_uuid

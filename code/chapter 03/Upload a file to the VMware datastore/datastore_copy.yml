@@ -1,0 +1,22 @@
+---
+- name: datastore copy demo
+  hosts: localhost
+  gather_facts: false
+  vars:
+    mysrc: "iso/ubuntu-22.04-live-server-amd64.iso"
+    mydest: "ISO/ubuntu-22.04-live-server-amd64.iso"
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: vars.yml
+  tasks:
+    - name: copy file to datastore
+      vsphere_copy:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        datacenter: "{{ vcenter_datacenter }}"
+        datastore: "{{ vcenter_datastore }}"
+        src: "{{ mysrc }}"
+        path: "{{ mydest }}"

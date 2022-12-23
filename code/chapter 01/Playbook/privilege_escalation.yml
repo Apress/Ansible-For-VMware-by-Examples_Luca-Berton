@@ -1,0 +1,11 @@
+---
+- name: install httpd
+  hosts: web.example.com
+  become: true
+  become_method: sudo
+  become_user: root
+  tasks:
+    - name: install httpd
+      ansible.builtin.yum:
+        name: httpd
+        status: present

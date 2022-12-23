@@ -1,0 +1,14 @@
+---
+- name: users and group example
+  hosts: all
+  tasks:
+  - name: add users to groups
+    ansible.builtin.user:
+      name: "{{ item.name }}"
+      state: present
+      groups: "{{ item.group }}"
+    loop:
+      - name: alice
+        group: wheel
+      - name: bob
+        group: root

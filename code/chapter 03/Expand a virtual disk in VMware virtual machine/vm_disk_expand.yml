@@ -1,0 +1,26 @@
+---
+- name: vm disk demo
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: vars.yml
+  tasks:
+    - name: expand disk in vm
+      vmware_guest_disk:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        datacenter: "{{ vcenter_datacenter }}"
+        name: "{{ vm_name }}"
+        disk:
+          - size_gb: "{{ vm_disk_gb }}"
+            type: "{{ vm_disk_type }}"
+            datastore: "{{ vm_disk_datastore }}"
+            state: present
+            scsi_controller: "{{ vm_disk_scsi_controller }}"
+            unit_number: "{{ vm_disk_scsi_unit }}"
+            scsi_type: "{{ vm_disk_scsi_type }}"
+            disk_mode: "{{ vm_disk_mode }}"

@@ -1,0 +1,6 @@
+[servers]
+demo1.example.com
+demo2.example.com
+
+[servers:vars]
+user=alice

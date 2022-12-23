@@ -1,0 +1,12 @@
+---
+plugin: vmware_vm_inventory
+strict: false
+hostname: vmware.example.com
+username: username@vsphere.local
+password: MySecretPassword123
+validate_certs: false
+with_tags: false
+groups:
+  VMs: true
+filters:
+  - config.guestId == "rhel7_64Guest"

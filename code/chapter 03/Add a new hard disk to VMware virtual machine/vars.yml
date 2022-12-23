@@ -1,0 +1,14 @@
+---
+vcenter_hostname: "vmware.example.com"
+vcenter_datacenter: "vmwaredatacenter"
+vcenter_validate_certs: false
+vcenter_username: "username@vsphere.local"
+vcenter_password: "MySecretPassword123"
+vm_name: "myvm"
+vm_disk_gb: 1
+vm_disk_type: "thin"
+vm_disk_datastore: "datastore"
+vm_disk_scsi_controller: 1
+vm_disk_scsi_unit: 1
+vm_disk_scsi_type: 'paravirtual'
+vm_disk_mode: 'persistent'

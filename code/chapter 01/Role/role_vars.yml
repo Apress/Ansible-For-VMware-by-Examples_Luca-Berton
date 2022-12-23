@@ -1,0 +1,8 @@
+---
+- name: role example
+  hosts: all
+  roles:
+  - role: role1
+  - role: role2
+    var1: value
+    var2: value

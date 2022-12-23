@@ -1,0 +1,9 @@
+---
+- name: message demo
+  hosts: all
+  tasks:
+    - name: sample message
+      ansible.builtin.debug:
+        msg: "Sample Text"
+        verbosity: 2
+...

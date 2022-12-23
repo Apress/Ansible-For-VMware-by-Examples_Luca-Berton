@@ -1,0 +1,14 @@
+---
+- name: wget installed demo
+  hosts: all
+  become: true
+  tasks:
+    - name: wget installed
+      ansible.builtin.yum:
+        name: wget
+        state: present
+      register: install_result
+
+    - name: yum printout
+      ansible.builtin.debug:
+        var: install_result

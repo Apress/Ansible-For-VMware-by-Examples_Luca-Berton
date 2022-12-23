@@ -1,0 +1,19 @@
+---
+- name: first play
+  hosts: www.example.com
+  tasks:
+    - name: first task
+      ansible.builtin.yum:
+        name: httpd
+        status: present
+    - name: second task
+      ansible.builtin.service:
+        name: httpd
+        enabled: true
+- name: second play
+  hosts: database.example.com
+  tasks:
+    - name: first task
+      ansible.builtin.service:
+        name: mariadb
+        enabled: true

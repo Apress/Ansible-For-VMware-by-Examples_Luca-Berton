@@ -1,0 +1,9 @@
+---
+- name: variable demo
+  hosts: all
+  vars:
+    fruit: "apple"
+  tasks:
+    - name: print variable
+      ansible.builtin.debug:
+        msg: "The value of the variable {{ fruit }}"

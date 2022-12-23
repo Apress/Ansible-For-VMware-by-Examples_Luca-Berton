@@ -1,0 +1,20 @@
+---
+- name: vm snapshot demo
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: vars.yml
+  tasks:
+    - name: remove snapshot
+      vmware_guest_snapshot:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        datacenter: "{{ vcenter_datacenter }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        name: "{{ vm_name }}"
+        folder: "{{ vm_folder }}"
+        snapshot_name: "Ansible Managed Snapshot"
+        state: absent

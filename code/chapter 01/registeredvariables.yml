@@ -1,0 +1,14 @@
+---
+- name: Installs a package and prints the result
+  hosts: all
+  become: true
+  tasks:
+    - name: Install the package
+      ansible.builtin.yum:
+        name: wget
+        state: installed
+      register: install_result
+
+    - name: debug
+      ansible.builtin.debug:
+        var: install_result

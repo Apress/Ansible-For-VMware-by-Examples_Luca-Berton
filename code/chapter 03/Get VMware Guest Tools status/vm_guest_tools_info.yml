@@ -1,0 +1,22 @@
+---
+- name: vmware guest tools info demo
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: vars.yml
+  tasks:
+    - name: guest tools info
+      vmware_guest_tools_info:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        datacenter: "{{ vcenter_datacenter }}"
+        name: "{{ vm_name }}"
+      register: vmtools_info
+
+    - name: print guest tools info
+      ansible.builtin.debug:
+        var: vmtools_info

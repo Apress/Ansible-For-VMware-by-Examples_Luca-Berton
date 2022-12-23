@@ -1,0 +1,17 @@
+---
+- name: start vm demo
+  hosts: localhost
+  gather_facts: false
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: vars.yml
+  tasks:
+    - name: power on VM
+      vmware_guest_powerstate:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        name: "{{ vm_name }}"
+        validate_certs: "{{ vcenter_validate_certs }}"
+        state: powered-on
